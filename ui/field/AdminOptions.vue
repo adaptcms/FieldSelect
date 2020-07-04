@@ -15,14 +15,15 @@
 </template>
 
 <script>
-import get from 'lodash.get'
+import { get } from 'lodash'
 
 export default {
   props: [
     'value',
     'field',
-    'module',
-    'errors'
+    'package',
+    'errors',
+    'fields'
   ],
 
   watch: {
@@ -34,7 +35,9 @@ export default {
 
     options (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('input', { options: newVal })
+        this.$emit('input', {
+          options: newVal
+        })
       }
     }
   },
@@ -46,7 +49,7 @@ export default {
   },
 
   mounted () {
-    if (!this.options && get(this.value, 'options', null)) {
+    if (get(this.value, 'options', null)) {
       this.options = this.value.options
     }
   }
