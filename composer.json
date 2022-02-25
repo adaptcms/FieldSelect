@@ -16,7 +16,7 @@
     "FieldSelect"
   ],
   "require": {
-    "illuminate/support": "^8.0"
+    "illuminate/support": "^9.0"
   },
   "autoload": {
     "psr-4": {
